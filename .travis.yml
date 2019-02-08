@@ -1,0 +1,21 @@
+sudo: required
+language: node_js
+node_js:
+  - 8.10.0
+before_install: 'echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc'
+install: yarn
+cache: yarn
+script:
+  - 'npm test'
+  - 'yarn test:ci'
+branches:
+  only:
+    - develop
+    - master
+deploy:
+  provider: script
+  script: 'npm run release'
+  on:
+    branch: master
+notifications:
+  email: false

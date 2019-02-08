@@ -1,0 +1,46 @@
+{
+  "name": "react-hooks-study",
+  "version": "0.0.0-semantically-released",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "yarn && versett-scripts release",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrevalgrande/react-hooks-study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrevalgrande/react-hooks-study/issues"
+  },
+  "homepage": "https://github.com/andrevalgrande/react-hooks-study#readme",
+  "devDependencies": {
+    "@versett/versett-scripts": "^0.5.0"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1",
+    "yarn": "1.12.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "versett-scripts commitmsg ${HUSKY_GIT_PARAMS}",
+      "pre-commit": "versett-scripts precommit",
+      "prepare-commit-msg": "versett-scripts preparecommitmsg ${HUSKY_GIT_PARAMS}",
+      "pre-push": "versett-scripts prepush"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "release": {
+    "getLastRelease": "last-release-git"
+  },
+  "dependencies": {}
+}
